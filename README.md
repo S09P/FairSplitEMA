@@ -7,5 +7,5 @@ The pipeline executes the following procedural steps for each dataset:
 
 1. **Initialization & Data Loading:** Load the dataset, normalize features, and split into training and testing sets across multiple random seeds.
 2. **Subgroup Rebalancing:** Divide training data into target-label and protected-attribute subgroups, then augment smaller subgroups using WGAN-based generation.
-3. **Decentralized Federated Training:** Train across distributed client partitions incorporating momentum-smoothed fairness estimates (EMA).
+3. **Decentralized Training:** Train across partitions incorporating momentum-smoothed fairness estimates (EMA).
 4. **Pareto-Based Model Selection:** Retain candidate models across training rounds to select optimal models balancing predictive performance and group fairness.
