@@ -28,7 +28,7 @@ FairSplitEMA/
 │   └── heart_processed.csv
 │   └── student_processed.csv
 |
-└── results/                 # Generated during execution
+└── results/                 
 ```
 
 The `dataset/` directory contains the preprocessed benchmark datasets required by the implementation. The `results/` directory is created automatically when the experiments are executed.
@@ -78,7 +78,6 @@ The primary configuration parameters include:
 | EMA coefficient | 0.7 |
 | Accuracy weight (α) | 1.5 |
 | Fairness weight (β) | 3.0 |
-| Fairness tolerance (ε) | 0.1 |
 
 The dataset and protected-attribute combinations are specified through `dataset_names` and `protected_attributes` in `main.py`. These lists are paired position-wise; therefore, each entry in `dataset_names` must correspond to the protected attribute at the same position in `protected_attributes`.
 
