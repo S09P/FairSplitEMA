@@ -47,6 +47,71 @@ pip install -r requirements.txt
 
 **Hardware:** The implementation supports CPU execution. GPU execution is optional and can be used when a compatible CUDA-enabled PyTorch installation and GPU are available.
 
+Running the Experiments
+
+After installing the dependencies and placing the preprocessed CSV files in the dataset/ directory, run:
+
+python main.py
+
+The implementation loads the configured dataset–protected attribute combinations, performs the train/test split, partitions the training data, and executes the FairSplitEMA pipeline across the specified random seeds.
+
+Configuration
+
+The experimental settings can be modified directly in main.py.
+
+The primary configuration parameters include:
+
+Parameter
+
+Default value
+
+Number of partitions
+
+10
+
+Local training epochs
+
+5
+
+Batch size
+
+32
+
+Learning rate
+
+0.001
+
+Test set proportion
+
+0.20
+
+Communication rounds
+
+30
+
+Random seeds
+
+42, 43, 44, 45, 46
+
+EMA coefficient
+
+0.7
+
+Accuracy weight (α)
+
+1.5
+
+Fairness weight (β)
+
+3.0
+
+Fairness tolerance (ε)
+
+0.1
+
+The dataset and protected-attribute combinations are specified through dataset_names and protected_attributes in main.py. These lists are paired position-wise; therefore, each entry in dataset_names must correspond to the protected attribute at the same position in protected_attributes.
+
+The default configuration runs the Bank dataset with the age attribute. Modify these lists to execute other dataset–attribute configurations.
 
 ## Output Files
 
