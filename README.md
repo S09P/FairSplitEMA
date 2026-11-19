@@ -102,8 +102,3 @@ The default random seeds are specified in `main.py`. To reproduce a particular e
 
 For further methodological details, theoretical analysis, and experimental results, please refer to the corresponding FairSplitEMA research paper.
 
-## Citation
-
-If you use this implementation in your research, please cite the associated FairSplitEMA paper.
-
-**Repository:** https://github.com/S09P/FairSplitEMA
