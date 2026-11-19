@@ -26,7 +26,8 @@ FairSplitEMA/
 │   ├── bank_processed.csv
 │   ├── default_processed.csv
 │   └── heart_processed.csv
-│
+│   └── student_processed.csv
+|
 └── results/                 # Generated during execution
 ```
 
