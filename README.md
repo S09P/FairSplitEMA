@@ -26,8 +26,6 @@ FairSplitEMA/
 │   ├── bank_processed.csv
 │   ├── default_processed.csv
 │   └── heart_processed.csv
-│
-└── results/                 # Generated during execution
 ```
 
 The `dataset/` directory contains the preprocessed benchmark datasets required by the implementation. The `results/` directory is created automatically when the experiments are executed.
