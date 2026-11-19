@@ -26,6 +26,8 @@ FairSplitEMA/
 │   ├── bank_processed.csv
 │   ├── default_processed.csv
 │   └── heart_processed.csv
+│
+└── results/                 # Generated during execution
 ```
 
 The `dataset/` directory contains the preprocessed benchmark datasets required by the implementation. The `results/` directory is created automatically when the experiments are executed.
@@ -47,69 +49,37 @@ pip install -r requirements.txt
 
 **Hardware:** The implementation supports CPU execution. GPU execution is optional and can be used when a compatible CUDA-enabled PyTorch installation and GPU are available.
 
-Running the Experiments
+## Running the Experiments
 
-After installing the dependencies and placing the preprocessed CSV files in the dataset/ directory, run:
+After installing the dependencies and placing the preprocessed CSV files in the `dataset/` directory, run:
 
+```bash
 python main.py
+```
 
 The implementation loads the configured dataset–protected attribute combinations, performs the train/test split, partitions the training data, and executes the FairSplitEMA pipeline across the specified random seeds.
 
-Configuration
+## Configuration
 
-The experimental settings can be modified directly in main.py.
+The experimental settings can be modified directly in `main.py`.
 
 The primary configuration parameters include:
 
-Parameter
+| Parameter | Default value |
+|---|---:|
+| Number of partitions | 10 |
+| Local training epochs | 5 |
+| Batch size | 32 |
+| Learning rate | 0.001 |
+| Test set proportion | 0.20 |
+| Communication rounds | 30 |
+| Random seeds | 42, 43, 44, 45, 46 |
+| EMA coefficient | 0.7 |
+| Accuracy weight (α) | 1.5 |
+| Fairness weight (β) | 3.0 |
+| Fairness tolerance (ε) | 0.1 |
 
-Default value
-
-Number of partitions
-
-10
-
-Local training epochs
-
-5
-
-Batch size
-
-32
-
-Learning rate
-
-0.001
-
-Test set proportion
-
-0.20
-
-Communication rounds
-
-30
-
-Random seeds
-
-42, 43, 44, 45, 46
-
-EMA coefficient
-
-0.7
-
-Accuracy weight (α)
-
-1.5
-
-Fairness weight (β)
-
-3.0
-
-Fairness tolerance (ε)
-
-0.1
-
-The dataset and protected-attribute combinations are specified through dataset_names and protected_attributes in main.py. These lists are paired position-wise; therefore, each entry in dataset_names must correspond to the protected attribute at the same position in protected_attributes.
+The dataset and protected-attribute combinations are specified through `dataset_names` and `protected_attributes` in `main.py`. These lists are paired position-wise; therefore, each entry in `dataset_names` must correspond to the protected attribute at the same position in `protected_attributes`.
 
 The default configuration runs the Bank dataset with the age attribute. Modify these lists to execute other dataset–attribute configurations.
 
@@ -122,6 +92,9 @@ Experimental results are saved in the `results/` directory. The main output file
 
 These files can be used for further analysis and for generating the experimental tables and figures reported in the paper.
 
+## Evaluation Protocol
+
+The implementation uses a fixed train/test split for each random seed. The held-out portion is also used during iterative fairness evaluation, aggregation, and model selection, as implemented in the experimental pipeline. Accordingly, the reported results should be interpreted in the context of this evaluation protocol rather than as performance on an independently untouched test set.
 
 ## Reproducibility
 
@@ -129,3 +102,8 @@ The default random seeds are specified in `main.py`. To reproduce a particular e
 
 For further methodological details, theoretical analysis, and experimental results, please refer to the corresponding FairSplitEMA research paper.
 
+## Citation
+
+If you use this implementation in your research, please cite the associated FairSplitEMA paper.
+
+**Repository:** https://github.com/S09P/FairSplitEMA
