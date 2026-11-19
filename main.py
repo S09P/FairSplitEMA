@@ -17,8 +17,8 @@ DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 if DEVICE.type == 'cuda':
     torch.backends.cudnn.benchmark = True
 
-dataset_names = ['Bank']
-protected_attributes = ['age']
+dataset_names = ['Compas','Compas','German','Heart','Bank','Default','Student','Adult','Adult']
+protected_attributes = ['sex','race','sex','age','age','sex','sex','sex','race']
 CSV_DIR = './dataset'
 RESULTS_DIR = './results'
 TARGET_COL_DEFAULT = 'Probability'
