@@ -92,9 +92,6 @@ Experimental results are saved in the `results/` directory. The main output file
 
 These files can be used for further analysis and for generating the experimental tables and figures reported in the paper.
 
-## Evaluation Protocol
-
-The implementation uses a fixed train/test split for each random seed. The held-out portion is also used during iterative fairness evaluation, aggregation, and model selection, as implemented in the experimental pipeline. Accordingly, the reported results should be interpreted in the context of this evaluation protocol rather than as performance on an independently untouched test set.
 
 ## Reproducibility
 
